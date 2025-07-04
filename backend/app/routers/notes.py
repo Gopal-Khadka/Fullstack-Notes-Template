@@ -1,5 +1,3 @@
-
-
 # backend/app/routers/notes.py
 """Notes API router with CRUD operations."""
 
@@ -23,8 +21,7 @@ async def get_notes(db: Session = Depends(get_db)) -> NotesListResponse:
 
 @router.post("/", response_model=NoteResponse, status_code=status.HTTP_201_CREATED)
 async def create_note(
-    note_data: NoteCreate, 
-    db: Session = Depends(get_db)
+    note_data: NoteCreate, db: Session = Depends(get_db)
 ) -> NoteResponse:
     """Create a new note."""
     note = Note(title=note_data.title, content=note_data.content)
@@ -36,22 +33,20 @@ async def create_note(
 
 @router.put("/{note_id}", response_model=NoteResponse)
 async def update_note(
-    note_id: int,
-    note_data: NoteUpdate,
-    db: Session = Depends(get_db)
+    note_id: int, note_data: NoteUpdate, db: Session = Depends(get_db)
 ) -> NoteResponse:
     """Update an existing note."""
     note = db.query(Note).filter(Note.id == note_id).first()
     if not note:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Note with id {note_id} not found"
+            detail=f"Note with id {note_id} not found",
         )
-    
+
     # Update fields
     note.title = note_data.title
     note.content = note_data.content
-    
+
     db.commit()
     db.refresh(note)
     return NoteResponse.model_validate(note)
@@ -64,8 +59,8 @@ async def delete_note(note_id: int, db: Session = Depends(get_db)) -> None:
     if not note:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Note with id {note_id} not found"
+            detail=f"Note with id {note_id} not found",
         )
-    
+
     db.delete(note)
     db.commit()
