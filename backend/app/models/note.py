@@ -2,8 +2,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, JSON
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime, timezone
-
-Base = declarative_base()
+from app.database import Base
 
 
 class Note(Base):
