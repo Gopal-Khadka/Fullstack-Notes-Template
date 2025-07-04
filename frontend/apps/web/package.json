@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "generate-types": "openapi-typescript http://localhost:8000/openapi.json -o ./types/schema.d.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -34,6 +35,7 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.30.0",
+    "openapi-typescript": "^7.8.0",
     "tw-animate-css": "^1.3.5",
     "typescript": "5.8.2"
   }
