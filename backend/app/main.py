@@ -36,6 +36,7 @@ app = FastAPI(
 
 # Configure CORS for frontend development
 app.add_middleware(
+    # type: ignore[reportGeneralTypeIssues]
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],  # Next.js dev server
     allow_credentials=True,

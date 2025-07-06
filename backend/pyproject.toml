@@ -5,12 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "fastapi>=0.104.1",
+    "fastapi>=0.115.14",
     "uvicorn[standard]>=0.24.0",
     "sqlalchemy>=2.0.23",
     "alembic>=1.13.1",
     "pydantic>=2.5.0",
     "python-multipart>=0.0.6",
+    "pyrefly>=0.22.2",
 ]
 
 [project.optional-dependencies]
@@ -41,6 +42,10 @@ ignore = [
 
 [tool.ruff.per-file-ignores]
 "__init__.py" = ["F401"]
+
+[tool.pyrefly]
+project-includes = ["**/*"]
+project-excludes = ['**/*venv/**\*']
 
 [dependency-groups]
 dev = [
