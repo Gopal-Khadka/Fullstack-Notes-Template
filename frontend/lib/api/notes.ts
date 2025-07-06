@@ -1,25 +1,36 @@
-import type { Note, NoteCreate, NoteUpdate } from "@/types/note";
-import { apiClient } from "./client";
+import {
+	createNoteApiNotesPost,
+	deleteNoteApiNotesNoteIdDelete,
+	getNotesApiNotesGet,
+	updateNoteApiNotesNoteIdPut,
+} from "../client/sdk.gen";
 
-export interface NotesResponse {
-	notes: Note[];
-	total: number;
-}
 
 export const notesApi = {
-	async getAll(): Promise<NotesResponse> {
-		const response = await apiClient.get<NotesResponse>("/api/notes/");
+	async getAll() {
+		const response = await getNotesApiNotesGet();
 		return response.data;
 	},
-	async create(data: NoteCreate): Promise<Note> {
-		const response = await apiClient.post<Note>("/api/notes/", data);
+	async create(data) {
+		const response = await createNoteApiNotesPost({
+			body: data,
+		});
 		return response.data;
 	},
-	async update(id: number, data: NoteUpdate): Promise<Note> {
-		const response = await apiClient.put<Note>(`/api/notes/${id}`, data);
+	async update(id: number, data) {
+		const response = await updateNoteApiNotesNoteIdPut({
+			path: {
+				note_id: id,
+			},
+			body: data,
+		});
 		return response.data;
 	},
-	async delete(id: number): Promise<void> {
-		await apiClient.delete(`/api/notes/${id}`);
+	async delete(id: number) {
+		await deleteNoteApiNotesNoteIdDelete({
+			path: {
+				note_id: id,
+			},
+		});
 	},
 };

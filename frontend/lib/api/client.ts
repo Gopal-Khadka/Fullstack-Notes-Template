@@ -1,11 +1,8 @@
-// Axios instance with interceptors
-import axios from "axios";
+import { createClient } from "../client/client";
 
-export const apiClient = axios.create({
-	baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
-	timeout: 10000,
-	headers: { "Content-Type": "application/json" },
-});
+const apiClient = createClient({
+	baseURL: "http://localhost:8000",
+}).instance;
 
 apiClient.interceptors.request.use(
 	(config) => {

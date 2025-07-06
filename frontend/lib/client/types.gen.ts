@@ -4,10 +4,10 @@
  * HTTPValidationError
  */
 export type HttpValidationError = {
-    /**
-     * Detail
-     */
-    detail?: Array<ValidationError>;
+	/**
+	 * Detail
+	 */
+	detail?: Array<ValidationError>;
 };
 
 /**
@@ -15,18 +15,18 @@ export type HttpValidationError = {
  * Schema for creating a new note.
  */
 export type NoteCreate = {
-    /**
-     * Title
-     * Note title
-     */
-    title: string;
-    /**
-     * Content
-     * Lexical JSON content
-     */
-    content: {
-        [key: string]: unknown;
-    };
+	/**
+	 * Title
+	 * Note title
+	 */
+	title: string;
+	/**
+	 * Content
+	 * Lexical JSON content
+	 */
+	content: {
+		[key: string]: unknown;
+	};
 };
 
 /**
@@ -34,30 +34,30 @@ export type NoteCreate = {
  * Schema for note responses.
  */
 export type NoteResponse = {
-    /**
-     * Title
-     * Note title
-     */
-    title: string;
-    /**
-     * Content
-     * Lexical JSON content
-     */
-    content: {
-        [key: string]: unknown;
-    };
-    /**
-     * Id
-     */
-    id: number;
-    /**
-     * Created At
-     */
-    created_at: string;
-    /**
-     * Updated At
-     */
-    updated_at: string;
+	/**
+	 * Title
+	 * Note title
+	 */
+	title: string;
+	/**
+	 * Content
+	 * Lexical JSON content
+	 */
+	content: {
+		[key: string]: unknown;
+	};
+	/**
+	 * Id
+	 */
+	id: number;
+	/**
+	 * Created At
+	 */
+	created_at: string;
+	/**
+	 * Updated At
+	 */
+	updated_at: string;
 };
 
 /**
@@ -65,18 +65,18 @@ export type NoteResponse = {
  * Schema for updating an existing note.
  */
 export type NoteUpdate = {
-    /**
-     * Title
-     * Note title
-     */
-    title: string;
-    /**
-     * Content
-     * Lexical JSON content
-     */
-    content: {
-        [key: string]: unknown;
-    };
+	/**
+	 * Title
+	 * Note title
+	 */
+	title: string;
+	/**
+	 * Content
+	 * Lexical JSON content
+	 */
+	content: {
+		[key: string]: unknown;
+	};
 };
 
 /**
@@ -84,163 +84,170 @@ export type NoteUpdate = {
  * Schema for notes list response.
  */
 export type NotesListResponse = {
-    /**
-     * Notes
-     */
-    notes: Array<NoteResponse>;
-    /**
-     * Total
-     */
-    total: number;
+	/**
+	 * Notes
+	 */
+	notes: Array<NoteResponse>;
+	/**
+	 * Total
+	 */
+	total: number;
 };
 
 /**
  * ValidationError
  */
 export type ValidationError = {
-    /**
-     * Location
-     */
-    loc: Array<string | number>;
-    /**
-     * Message
-     */
-    msg: string;
-    /**
-     * Error Type
-     */
-    type: string;
+	/**
+	 * Location
+	 */
+	loc: Array<string | number>;
+	/**
+	 * Message
+	 */
+	msg: string;
+	/**
+	 * Error Type
+	 */
+	type: string;
 };
 
 export type GetNotesApiNotesGetData = {
-    body?: never;
-    path?: never;
-    query?: never;
-    url: '/api/notes/';
+	body?: never;
+	path?: never;
+	query?: never;
+	url: "/api/notes/";
 };
 
 export type GetNotesApiNotesGetResponses = {
-    /**
-     * Successful Response
-     */
-    200: NotesListResponse;
+	/**
+	 * Successful Response
+	 */
+	200: NotesListResponse;
 };
 
-export type GetNotesApiNotesGetResponse = GetNotesApiNotesGetResponses[keyof GetNotesApiNotesGetResponses];
+export type GetNotesApiNotesGetResponse =
+	GetNotesApiNotesGetResponses[keyof GetNotesApiNotesGetResponses];
 
 export type CreateNoteApiNotesPostData = {
-    body: NoteCreate;
-    path?: never;
-    query?: never;
-    url: '/api/notes/';
+	body: NoteCreate;
+	path?: never;
+	query?: never;
+	url: "/api/notes/";
 };
 
 export type CreateNoteApiNotesPostErrors = {
-    /**
-     * Validation Error
-     */
-    422: HttpValidationError;
+	/**
+	 * Validation Error
+	 */
+	422: HttpValidationError;
 };
 
-export type CreateNoteApiNotesPostError = CreateNoteApiNotesPostErrors[keyof CreateNoteApiNotesPostErrors];
+export type CreateNoteApiNotesPostError =
+	CreateNoteApiNotesPostErrors[keyof CreateNoteApiNotesPostErrors];
 
 export type CreateNoteApiNotesPostResponses = {
-    /**
-     * Successful Response
-     */
-    201: NoteResponse;
+	/**
+	 * Successful Response
+	 */
+	201: NoteResponse;
 };
 
-export type CreateNoteApiNotesPostResponse = CreateNoteApiNotesPostResponses[keyof CreateNoteApiNotesPostResponses];
+export type CreateNoteApiNotesPostResponse =
+	CreateNoteApiNotesPostResponses[keyof CreateNoteApiNotesPostResponses];
 
 export type DeleteNoteApiNotesNoteIdDeleteData = {
-    body?: never;
-    path: {
-        /**
-         * Note Id
-         */
-        note_id: number;
-    };
-    query?: never;
-    url: '/api/notes/{note_id}';
+	body?: never;
+	path: {
+		/**
+		 * Note Id
+		 */
+		note_id: number;
+	};
+	query?: never;
+	url: "/api/notes/{note_id}";
 };
 
 export type DeleteNoteApiNotesNoteIdDeleteErrors = {
-    /**
-     * Validation Error
-     */
-    422: HttpValidationError;
+	/**
+	 * Validation Error
+	 */
+	422: HttpValidationError;
 };
 
-export type DeleteNoteApiNotesNoteIdDeleteError = DeleteNoteApiNotesNoteIdDeleteErrors[keyof DeleteNoteApiNotesNoteIdDeleteErrors];
+export type DeleteNoteApiNotesNoteIdDeleteError =
+	DeleteNoteApiNotesNoteIdDeleteErrors[keyof DeleteNoteApiNotesNoteIdDeleteErrors];
 
 export type DeleteNoteApiNotesNoteIdDeleteResponses = {
-    /**
-     * Successful Response
-     */
-    204: void;
+	/**
+	 * Successful Response
+	 */
+	204: void;
 };
 
-export type DeleteNoteApiNotesNoteIdDeleteResponse = DeleteNoteApiNotesNoteIdDeleteResponses[keyof DeleteNoteApiNotesNoteIdDeleteResponses];
+export type DeleteNoteApiNotesNoteIdDeleteResponse =
+	DeleteNoteApiNotesNoteIdDeleteResponses[keyof DeleteNoteApiNotesNoteIdDeleteResponses];
 
 export type UpdateNoteApiNotesNoteIdPutData = {
-    body: NoteUpdate;
-    path: {
-        /**
-         * Note Id
-         */
-        note_id: number;
-    };
-    query?: never;
-    url: '/api/notes/{note_id}';
+	body: NoteUpdate;
+	path: {
+		/**
+		 * Note Id
+		 */
+		note_id: number;
+	};
+	query?: never;
+	url: "/api/notes/{note_id}";
 };
 
 export type UpdateNoteApiNotesNoteIdPutErrors = {
-    /**
-     * Validation Error
-     */
-    422: HttpValidationError;
+	/**
+	 * Validation Error
+	 */
+	422: HttpValidationError;
 };
 
-export type UpdateNoteApiNotesNoteIdPutError = UpdateNoteApiNotesNoteIdPutErrors[keyof UpdateNoteApiNotesNoteIdPutErrors];
+export type UpdateNoteApiNotesNoteIdPutError =
+	UpdateNoteApiNotesNoteIdPutErrors[keyof UpdateNoteApiNotesNoteIdPutErrors];
 
 export type UpdateNoteApiNotesNoteIdPutResponses = {
-    /**
-     * Successful Response
-     */
-    200: NoteResponse;
+	/**
+	 * Successful Response
+	 */
+	200: NoteResponse;
 };
 
-export type UpdateNoteApiNotesNoteIdPutResponse = UpdateNoteApiNotesNoteIdPutResponses[keyof UpdateNoteApiNotesNoteIdPutResponses];
+export type UpdateNoteApiNotesNoteIdPutResponse =
+	UpdateNoteApiNotesNoteIdPutResponses[keyof UpdateNoteApiNotesNoteIdPutResponses];
 
 export type RootGetData = {
-    body?: never;
-    path?: never;
-    query?: never;
-    url: '/';
+	body?: never;
+	path?: never;
+	query?: never;
+	url: "/";
 };
 
 export type RootGetResponses = {
-    /**
-     * Successful Response
-     */
-    200: unknown;
+	/**
+	 * Successful Response
+	 */
+	200: unknown;
 };
 
 export type HealthCheckHealthGetData = {
-    body?: never;
-    path?: never;
-    query?: never;
-    url: '/health';
+	body?: never;
+	path?: never;
+	query?: never;
+	url: "/health";
 };
 
 export type HealthCheckHealthGetResponses = {
-    /**
-     * Successful Response
-     */
-    200: unknown;
+	/**
+	 * Successful Response
+	 */
+	200: unknown;
 };
 
 export type ClientOptions = {
-    baseUrl: 'http://localhost:8000' | (string & {});
+	baseURL: "http://localhost:8000" | (string & {});
 };

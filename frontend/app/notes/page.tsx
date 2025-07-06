@@ -46,7 +46,7 @@ export default function NotesDemoPage() {
 		let contentJSON: Record<string, any>;
 		try {
 			contentJSON = JSON.parse(content);
-		} catch  {
+		} catch {
 			alert("Invalid JSON content.");
 			return;
 		}
