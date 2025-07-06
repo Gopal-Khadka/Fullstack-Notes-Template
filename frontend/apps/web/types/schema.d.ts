@@ -4,352 +4,352 @@
  */
 
 export interface paths {
-    "/api/notes/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get Notes
-         * @description Retrieve all notes.
-         */
-        get: operations["get_notes_api_notes__get"];
-        put?: never;
-        /**
-         * Create Note
-         * @description Create a new note.
-         */
-        post: operations["create_note_api_notes__post"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/notes/{note_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        /**
-         * Update Note
-         * @description Update an existing note.
-         */
-        put: operations["update_note_api_notes__note_id__put"];
-        post?: never;
-        /**
-         * Delete Note
-         * @description Delete a note.
-         */
-        delete: operations["delete_note_api_notes__note_id__delete"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Root
-         * @description Root endpoint with API information.
-         */
-        get: operations["root__get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/health": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Health Check
-         * @description Health check endpoint.
-         */
-        get: operations["health_check_health_get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
+	"/api/notes/": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		/**
+		 * Get Notes
+		 * @description Retrieve all notes.
+		 */
+		get: operations["get_notes_api_notes__get"];
+		put?: never;
+		/**
+		 * Create Note
+		 * @description Create a new note.
+		 */
+		post: operations["create_note_api_notes__post"];
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/api/notes/{note_id}": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		get?: never;
+		/**
+		 * Update Note
+		 * @description Update an existing note.
+		 */
+		put: operations["update_note_api_notes__note_id__put"];
+		post?: never;
+		/**
+		 * Delete Note
+		 * @description Delete a note.
+		 */
+		delete: operations["delete_note_api_notes__note_id__delete"];
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		/**
+		 * Root
+		 * @description Root endpoint with API information.
+		 */
+		get: operations["root__get"];
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
+	"/health": {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		/**
+		 * Health Check
+		 * @description Health check endpoint.
+		 */
+		get: operations["health_check_health_get"];
+		put?: never;
+		post?: never;
+		delete?: never;
+		options?: never;
+		head?: never;
+		patch?: never;
+		trace?: never;
+	};
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: {
-        /** HTTPValidationError */
-        HTTPValidationError: {
-            /** Detail */
-            detail?: components["schemas"]["ValidationError"][];
-        };
-        /**
-         * NoteCreate
-         * @description Schema for creating a new note.
-         */
-        NoteCreate: {
-            /**
-             * Title
-             * @description Note title
-             */
-            title: string;
-            /**
-             * Content
-             * @description Lexical JSON content
-             */
-            content: {
-                [key: string]: unknown;
-            };
-        };
-        /**
-         * NoteResponse
-         * @description Schema for note responses.
-         */
-        NoteResponse: {
-            /**
-             * Title
-             * @description Note title
-             */
-            title: string;
-            /**
-             * Content
-             * @description Lexical JSON content
-             */
-            content: {
-                [key: string]: unknown;
-            };
-            /** Id */
-            id: number;
-            /**
-             * Created At
-             * Format: date-time
-             */
-            created_at: string;
-            /**
-             * Updated At
-             * Format: date-time
-             */
-            updated_at: string;
-        };
-        /**
-         * NoteUpdate
-         * @description Schema for updating an existing note.
-         */
-        NoteUpdate: {
-            /**
-             * Title
-             * @description Note title
-             */
-            title: string;
-            /**
-             * Content
-             * @description Lexical JSON content
-             */
-            content: {
-                [key: string]: unknown;
-            };
-        };
-        /**
-         * NotesListResponse
-         * @description Schema for notes list response.
-         */
-        NotesListResponse: {
-            /** Notes */
-            notes: components["schemas"]["NoteResponse"][];
-            /** Total */
-            total: number;
-        };
-        /** ValidationError */
-        ValidationError: {
-            /** Location */
-            loc: (string | number)[];
-            /** Message */
-            msg: string;
-            /** Error Type */
-            type: string;
-        };
-    };
-    responses: never;
-    parameters: never;
-    requestBodies: never;
-    headers: never;
-    pathItems: never;
+	schemas: {
+		/** HTTPValidationError */
+		HTTPValidationError: {
+			/** Detail */
+			detail?: components["schemas"]["ValidationError"][];
+		};
+		/**
+		 * NoteCreate
+		 * @description Schema for creating a new note.
+		 */
+		NoteCreate: {
+			/**
+			 * Title
+			 * @description Note title
+			 */
+			title: string;
+			/**
+			 * Content
+			 * @description Lexical JSON content
+			 */
+			content: {
+				[key: string]: unknown;
+			};
+		};
+		/**
+		 * NoteResponse
+		 * @description Schema for note responses.
+		 */
+		NoteResponse: {
+			/**
+			 * Title
+			 * @description Note title
+			 */
+			title: string;
+			/**
+			 * Content
+			 * @description Lexical JSON content
+			 */
+			content: {
+				[key: string]: unknown;
+			};
+			/** Id */
+			id: number;
+			/**
+			 * Created At
+			 * Format: date-time
+			 */
+			created_at: string;
+			/**
+			 * Updated At
+			 * Format: date-time
+			 */
+			updated_at: string;
+		};
+		/**
+		 * NoteUpdate
+		 * @description Schema for updating an existing note.
+		 */
+		NoteUpdate: {
+			/**
+			 * Title
+			 * @description Note title
+			 */
+			title: string;
+			/**
+			 * Content
+			 * @description Lexical JSON content
+			 */
+			content: {
+				[key: string]: unknown;
+			};
+		};
+		/**
+		 * NotesListResponse
+		 * @description Schema for notes list response.
+		 */
+		NotesListResponse: {
+			/** Notes */
+			notes: components["schemas"]["NoteResponse"][];
+			/** Total */
+			total: number;
+		};
+		/** ValidationError */
+		ValidationError: {
+			/** Location */
+			loc: (string | number)[];
+			/** Message */
+			msg: string;
+			/** Error Type */
+			type: string;
+		};
+	};
+	responses: never;
+	parameters: never;
+	requestBodies: never;
+	headers: never;
+	pathItems: never;
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    get_notes_api_notes__get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NotesListResponse"];
-                };
-            };
-        };
-    };
-    create_note_api_notes__post: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["NoteCreate"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NoteResponse"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    update_note_api_notes__note_id__put: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                note_id: number;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["NoteUpdate"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["NoteResponse"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    delete_note_api_notes__note_id__delete: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                note_id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    root__get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
-    health_check_health_get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": unknown;
-                };
-            };
-        };
-    };
+	get_notes_api_notes__get: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		requestBody?: never;
+		responses: {
+			/** @description Successful Response */
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["NotesListResponse"];
+				};
+			};
+		};
+	};
+	create_note_api_notes__post: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		requestBody: {
+			content: {
+				"application/json": components["schemas"]["NoteCreate"];
+			};
+		};
+		responses: {
+			/** @description Successful Response */
+			201: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["NoteResponse"];
+				};
+			};
+			/** @description Validation Error */
+			422: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["HTTPValidationError"];
+				};
+			};
+		};
+	};
+	update_note_api_notes__note_id__put: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path: {
+				note_id: number;
+			};
+			cookie?: never;
+		};
+		requestBody: {
+			content: {
+				"application/json": components["schemas"]["NoteUpdate"];
+			};
+		};
+		responses: {
+			/** @description Successful Response */
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["NoteResponse"];
+				};
+			};
+			/** @description Validation Error */
+			422: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["HTTPValidationError"];
+				};
+			};
+		};
+	};
+	delete_note_api_notes__note_id__delete: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path: {
+				note_id: number;
+			};
+			cookie?: never;
+		};
+		requestBody?: never;
+		responses: {
+			/** @description Successful Response */
+			204: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content?: never;
+			};
+			/** @description Validation Error */
+			422: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": components["schemas"]["HTTPValidationError"];
+				};
+			};
+		};
+	};
+	root__get: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		requestBody?: never;
+		responses: {
+			/** @description Successful Response */
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": unknown;
+				};
+			};
+		};
+	};
+	health_check_health_get: {
+		parameters: {
+			query?: never;
+			header?: never;
+			path?: never;
+			cookie?: never;
+		};
+		requestBody?: never;
+		responses: {
+			/** @description Successful Response */
+			200: {
+				headers: {
+					[name: string]: unknown;
+				};
+				content: {
+					"application/json": unknown;
+				};
+			};
+		};
+	};
 }

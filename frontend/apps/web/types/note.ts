@@ -1,4 +1,4 @@
-import type { paths, components } from "./schema";
+import type { components, paths } from "./schema";
 
 // Schema Obj
 export type NotesListResponse = components["schemas"]["NotesListResponse"];
