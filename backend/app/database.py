@@ -1,10 +1,11 @@
 """Database configuration and session management."""
 
+import os
+from collections.abc import Generator
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from typing import Generator
-import os
 
 # Database configuration
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./notes.db")
