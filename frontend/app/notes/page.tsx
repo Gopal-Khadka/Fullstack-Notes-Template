@@ -8,7 +8,7 @@ import {
 	useNotes,
 	useUpdateNote,
 } from "@/hooks/useNote";
-import type { Note, NoteCreate, NoteUpdate } from "@/types/note";
+import type{ NoteCreate, NoteResponse, NoteUpdate } from "@/lib/client";
 
 export default function NotesDemoPage() {
 	const { data: notes, isLoading, isError } = useNotes();
@@ -16,11 +16,11 @@ export default function NotesDemoPage() {
 	const updateNote = useUpdateNote();
 	const deleteNote = useDeleteNote();
 
-	const [selectedNote, setSelectedNote] = useState<Note | null>(null);
+	const [selectedNote, setSelectedNote] = useState<NoteResponse | null>(null);
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
 
-	const handleEditClick = (note: Note) => {
+	const handleEditClick = (note:NoteResponse) => {
 		setSelectedNote(note);
 		setTitle(note.title);
 		try {

@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+		"lint": "biome check ./app --write",
+		"format": "biome format ./app",
 		"openapi-ts": "openapi-ts"
 	},
 	"dependencies": {
