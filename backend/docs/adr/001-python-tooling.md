@@ -42,6 +42,33 @@ We've chosen to adopt `uv` for dependency management and `Ruff` for linting and 
 * **Tool Maturity**: `uv` is newer than `pip` and `Poetry`, which may present unforeseen edge cases during adoption.
 * **Migration Effort**: Requires a one-time effort to migrate existing projects and update internal documentation and CI configurations.
 
+
+### Implementation Notes
+
+**Technical Implementation:**
+- Replace `pip` with `uv` for package installation: `uv pip install -r requirements.txt`
+- Replace `black`, `flake8`, `isort` with `ruff`: single command `ruff check --fix && ruff format`
+- Integration with pre-commit hooks using `.pre-commit-config.yaml`
+- CI/CD pipeline updated to use `uv` for dependency installation and `ruff` for code quality checks
+
+**Patterns Used:**
+- Single-tool approach: `ruff` handles both linting and formatting in one pass
+- Configuration-as-code: All settings defined in `pyproject.toml` under `[tool.ruff]`
+- Performance-first: `uv` written in Rust for 10-100x faster package operations
+
+**Future Considerations:**
+- Monitor `uv` stability as it's relatively new (currently in active development)
+- Plan migration strategy for existing `poetry` lock files to `uv` format
+- Evaluate additional `ruff` plugins as they become available
+
+### References
+
+- [Saas Pegasus - uv Guide](https://www.saaspegasus.com/guides/uv-deep-dive/)
+- [uv Documentation](https://github.com/astral-sh/uv)
+- [ruff Documentation](https://docs.astral.sh/ruff/)
+- [Python Packaging User Guide](https://packaging.python.org/en/latest/)
+- [Astral Blog - Announcing uv](https://astral.sh/blog/uv)
+
 ## Compliance
 
 Adoption will be enforced through updated `cookiecutter` project templates, modified CI/CD pipeline configurations, and revised developer onboarding documentation. All new Python projects must use `uv` and `Ruff`.
