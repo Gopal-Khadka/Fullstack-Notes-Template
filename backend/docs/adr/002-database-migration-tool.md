@@ -1,8 +1,8 @@
 # ADR-002: Use Alembic for Database Migrations
 
-**Date**: 2025-07-07  
-**Status**: Accepted  
-**Deciders**: Backend Team, DevOps Team  
+**Date**: 2025-07-07
+**Status**: Accepted
+**Deciders**: Backend Team, DevOps Team
 
 ## Context
 

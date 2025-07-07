@@ -1,8 +1,8 @@
 
 ## ADR-003: Use PNPM as Package Manager for Frontend
 
-Date: 2025-07-07  
-Status: Accepted  
+Date: 2025-07-07
+Status: Accepted
 Deciders: Frontend Team
 
 ### Context

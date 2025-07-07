@@ -11,7 +11,7 @@ from app.routers import notes_router
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+async def lifespan(app: FastAPI) -> AsyncGenerator[None]:
     """Application lifespan events."""
     # Startup
     create_tables()

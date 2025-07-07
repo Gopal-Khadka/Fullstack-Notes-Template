@@ -1,7 +1,7 @@
 ## ADR-006: Use Dexie.js and IndexedDB for Client-Side Data Storage
 
-Date: 2025-07-07  
-Status: Accepted  
+Date: 2025-07-07
+Status: Accepted
 Deciders: Frontend Team, Backend Team
 
 ### Context

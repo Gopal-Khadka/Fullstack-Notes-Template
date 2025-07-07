@@ -20,7 +20,8 @@ async def get_notes(db: Session = Depends(get_db)) -> NotesListResponse:
 
 @router.post("/", response_model=NoteResponse, status_code=status.HTTP_201_CREATED)
 async def create_note(
-    note_data: NoteCreate, db: Session = Depends(get_db)
+    note_data: NoteCreate,
+    db: Session = Depends(get_db),
 ) -> NoteResponse:
     """Create a new note."""
     note = Note(title=note_data.title, content=note_data.content)
@@ -32,7 +33,9 @@ async def create_note(
 
 @router.put("/{note_id}", response_model=NoteResponse)
 async def update_note(
-    note_id: int, note_data: NoteUpdate, db: Session = Depends(get_db)
+    note_id: int,
+    note_data: NoteUpdate,
+    db: Session = Depends(get_db),
 ) -> NoteResponse:
     """Update an existing note."""
     note = db.query(Note).filter(Note.id == note_id).first()

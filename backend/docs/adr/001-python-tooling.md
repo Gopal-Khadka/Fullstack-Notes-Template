@@ -1,7 +1,7 @@
 # ADR-001: Adopt `uv` and `Ruff` for Python Tooling
 
-**Date**: 2025-07-07  
-**Status**: Accepted  
+**Date**: 2025-07-07
+**Status**: Accepted
 **Deciders**: Backend Team, Product Manager
 
 ## Context

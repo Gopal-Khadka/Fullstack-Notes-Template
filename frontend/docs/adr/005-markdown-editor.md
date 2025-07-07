@@ -1,7 +1,7 @@
 ## ADR-005: Use Lexical Editor for Markdown Editor
 
-Date: 2025-07-07  
-Status: Accepted  
+Date: 2025-07-07
+Status: Accepted
 Deciders: Frontend Team
 
 ### Context

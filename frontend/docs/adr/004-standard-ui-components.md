@@ -1,7 +1,7 @@
 ## ADR-004: Use Shadcn/ui + Tailwind CSS for UI Components
 
-Date: 2025-07-07  
-Status: Accepted  
+Date: 2025-07-07
+Status: Accepted
 Deciders: Frontend Team, Design Team
 
 ### Context
