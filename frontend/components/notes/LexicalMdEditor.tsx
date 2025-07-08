@@ -10,6 +10,8 @@ import "@/styles/lexical.css";
 import { cn } from "@/lib/utils";
 import type { EditorState } from "lexical";
 import TreeViewPlugin from "@/plugins/TreeViewPlugin";
+import { MentionNode } from "@/nodes/MentionNode";
+import NewMentionsPlugin from "@/plugins/MentionPlugin";
 
 // Catch any errors that occur during Lexical updates and log them
 // or throw them as needed. If you don't throw them, Lexical will
@@ -49,6 +51,7 @@ export default function LexicalMdEditor() {
           <AutoFocusPlugin />
           <OnChangePlugin onChange={onChange} />
           <TreeViewPlugin />
+		  <NewMentionsPlugin/>
         </div>
       </LexicalComposer>
     </div>
