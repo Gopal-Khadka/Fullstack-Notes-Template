@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation";
 import LexicalMdEditor from "@/components/notes/LexicalMdEditor";
 import { Button } from "@/components/ui/button";
-import TipTapEditor from "@/components/notes/TipTapEditor";
+import {SimpleTipTapEditor} from "@/components/notes/TipTapEditor/SimpleEditor";
+import AdvancedEditor from "@/components/notes/TipTapEditor/AdvancedEditor";
 
 const page = () => {
 	const router = useRouter();
@@ -21,7 +22,7 @@ const page = () => {
 			<hr /> */}
 
 			<h2 className="text-primary">TipTap Editor</h2>
-			<TipTapEditor />
+			<AdvancedEditor />
 		</div>
 	);
 };
