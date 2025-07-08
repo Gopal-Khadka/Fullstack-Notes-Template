@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import LexicalMdEditor from "@/components/notes/LexicalMdEditor";
 import { Button } from "@/components/ui/button";
+import TipTapEditor from "@/components/notes/TipTapEditor";
 
 const page = () => {
 	const router = useRouter();
@@ -15,8 +16,12 @@ const page = () => {
 			<Button onClick={handleClick}>Go to Notes</Button>
 			<hr/>
 
-			<h2 className="text-primary">Lexical Md Editor</h2>
+			{/* <h2 className="text-primary">Lexical Md Editor</h2>
 			<LexicalMdEditor />
+			<hr /> */}
+
+			<h2 className="text-primary">TipTap Editor</h2>
+			<TipTapEditor />
 		</div>
 	);
 };

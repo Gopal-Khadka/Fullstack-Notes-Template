@@ -1,82 +1,64 @@
-## ADR-005: Use Lexical Editor for Markdown Editor
+# ADR-005: Use Tiptap for Rich Text and Markdown Editing
 
-Date: 2025-07-07
-Status: Accepted
-Deciders: Frontend Team
+**Date**: 2025-07-08
+**Status**: Accepted
+**Deciders**: Frontend Team
 
-### Context
+## Context and Problem Statement
 
-Our application requires a rich text editing experience that supports Markdown syntax while providing a modern, user-friendly interface. Current solutions like traditional textarea-based Markdown editors lack the interactive features users expect, while existing rich text editors often produce HTML that doesn't align with our Markdown-centric content strategy. We need an editor that bridges the gap between Markdown's simplicity and rich text editing capabilities.
+Our Next.js application requires a rich text editor, primarily for a chat input component. A key requirement is the ability to handle contextual features, such as `@mentions` and `#hashtags`, similar to modern chat applications. As our development team is small, the chosen solution must have excellent documentation, a straightforward integration process, and a good balance between out-of-the-box functionality and customization. The editor needs to integrate seamlessly with our existing tech stack, including Next.js (App Router), TypeScript, and Shadcn/ui with Tailwind CSS.
 
-### Decision Drivers
+## Decision Drivers
 
-* **Modern UX**: Provide an intuitive, rich text editing experience
-* **Markdown Support**: Native Markdown input and output capabilities
-* **Extensibility**: Ability to add custom plugins and formatting options
-* **Performance**: Smooth editing experience even with large documents
-* **Framework Integration**: Seamless integration with React and TypeScript
-* **Accessibility**: Built-in accessibility features and keyboard navigation
+*   **Feature Completeness:** Native or simple extension support for mentions and hashtags.
+*   **Developer Experience:** Ease of integration, quality of documentation, and a gentle learning curve are critical.
+*   **Stack Compatibility:** Seamless integration with Next.js, TypeScript, and Tailwind CSS.
+*   **Customization:** The ability to create a "headless" editor that can be styled to match our Shadcn/ui design system.
+*   **Maintainability:** Backed by an active community and a stable release cycle.
+*   **Development Velocity:** A solution that minimizes implementation time and effort for a small team.
 
-### Considered Options
+## Considered Options
 
-1. **Lexical Editor**: Facebook's extensible text editor framework with Markdown support
-2. **TipTap**: Headless editor built on ProseMirror with Vue and React support
-3. **Draft.js**: Rich text editor framework built by Facebook (deprecated)
-4. **Monaco Editor**: VS Code's editor with Markdown syntax highlighting
-5. **React-MD-Editor**: Simple React Markdown editor with preview
-6. **Quill.js**: Modular rich text editor with custom formats
+1.  **Tiptap:** A headless editor framework built on top of ProseMirror, known for its ease of use and excellent documentation.
+2.  **Lexical:** A modern editor framework from Meta (Facebook), designed for reliability and performance with built-in support for features like mentions.
+3.  **ProseMirror:** A highly modular and flexible low-level toolkit for building rich text editors.
 
-### Decision Outcome
+## Decision Outcome
 
-**Chosen option:** Lexical Editor.
-We have chosen Lexical Editor because it provides a modern, extensible architecture specifically designed for rich text editing with excellent Markdown support. Built by Facebook's engineering team, it offers superior performance through its immutable editor state and provides the flexibility to create custom editing experiences while maintaining accessibility and framework integration.
+**Chosen option:** **Tiptap**, because it provides the ideal balance of ease of implementation, powerful features, and excellent documentation for our specific use case and team size. Its dedicated Next.js integration guides and headless nature allow for rapid development and full styling control, making it the most pragmatic and efficient choice.
 
 ### Positive Consequences
 
-* **Superior Performance**: Immutable state management ensures consistent performance with large documents
-* **Markdown Native**: Built-in Markdown serialization and deserialization capabilities
-* **Extensible Architecture**: Plugin system allows for custom formatting, shortcuts, and behaviors
-* **TypeScript First**: Excellent type safety and developer experience
-* **Accessibility Built-in**: Comprehensive accessibility features and keyboard navigation
-* **Framework Agnostic**: Works well with React while supporting other frameworks
-* **Active Development**: Backed by Facebook with regular updates and improvements
+*   **Reduced Development Time:** Excellent documentation and an intuitive API will significantly speed up implementation compared to other options.
+*   **Seamless Integration:** Dedicated guides and community support for Next.js and Tailwind CSS reduce integration friction.
+*   **High-Quality UI:** As a headless editor, Tiptap gives us full control over the look and feel, ensuring consistency with our Shadcn/ui component library.
+*   **Strong Community Support:** A large and active community provides a wealth of extensions, examples, and support.
 
 ### Negative Consequences
 
-* **Learning Curve**: Complex architecture requires understanding of Lexical's concepts and patterns
-* **Documentation**: Relatively new with evolving documentation and examples
-* **Bundle Size**: Larger bundle size compared to simpler editor solutions
+*   **Underlying Complexity:** Tiptap is built on ProseMirror, and its underlying complexity may surface in highly advanced or custom scenarios.
+*   **Bundle Size:** May have a slightly larger bundle size than a bespoke ProseMirror implementation due to its included abstractions.
+*   **Commercial Extensions:** Some highly advanced features are offered as paid extensions, which could be a consideration for future requirements.
 
-### Implementation Notes
+## Pros and Cons of the Options
 
-**Technical Implementation:**
-- Install Lexical packages: `pnpm add lexical @lexical/react @lexical/markdown`
-- Configure editor with Markdown transformers and custom plugins
-- Implement custom toolbar with formatting buttons and shortcuts
-- Set up auto-save functionality with debounced updates
-- Configure theme and styling through Lexical's theme system
+### Tiptap
 
-**Patterns Used:**
-- Command pattern: Editor commands for formatting and content manipulation
-- Plugin architecture: Modular functionality through Lexical plugins
-- Immutable state: Editor state management through immutable updates
-- Observer pattern: State change notifications for real-time updates
-- Transformer pattern: Content serialization between Markdown and editor state
+*   **Pros:** Easy learning curve, excellent documentation, superior Next.js integration, active community, highly extensible.
+*   **Cons:** Inherits ProseMirror's complexity underneath, some features are commercial, potentially larger bundle size.
 
-**Future Considerations:**
-- Implement collaborative editing features using Lexical's collaboration plugins
-- Add custom plugins for application-specific formatting (e.g., mentions, embeds)
-- Evaluate Lexical's experimental features as they become stable
-- Consider implementing custom node types for rich content blocks
+### Lexical
 
-### Compliance
+*   **Pros:** Backed by Meta, strong performance and accessibility, native support for mentions/hashtags.
+*   **Cons:** Documentation has gaps and is heavily React-focused, smaller community, newer framework with a moderate learning curve.
 
-All rich text editing functionality must be implemented using Lexical Editor. Custom formatting and plugins should follow Lexical's architecture patterns and maintain compatibility with Markdown output.
+### ProseMirror
 
-### References
+*   **Pros:** Maximum flexibility and performance, mature and stable core, large ecosystem of plugins.
+*   **Cons:** Very steep learning curve, requires significant manual integration work for React/Next.js, high development overhead not suitable for a small team.
 
-- [Lexical Documentation](https://lexical.dev/)
-- [Lexical Playground](https://playground.lexical.dev/)
-- [Lexical GitHub Repository](https://github.com/facebook/lexical)
-- [Markdown Specification](https://commonmark.org/)
-- [Rich Text Editing Best Practices](https://www.smashingmagazine.com/2022/03/designing-better-rich-text-editors/)
+## Links
+
+*   [Tiptap Documentation](https://tiptap.dev/docs/editor/introduction)
+*   [Lexical Website](https://lexical.dev/)
+*   [ProseMirror Website](https://prosemirror.net/)
