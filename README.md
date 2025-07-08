@@ -34,7 +34,7 @@ A modern, full-stack application for managing notes with a rich text editor. Thi
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **API Client**: [openapi-ts](https://github.com/hey-api/openapi-ts) & [Axios](https://axios-http.com/)
 - **Package Manager**: [pnpm](https://pnpm.io/)
-- **Editor**: [Lexical](https://lexical.dev/) (Planned)
+- **Editor**: [Lexical](https://lexical.dev/)
 
 ## Project Structure
 
@@ -59,8 +59,8 @@ Both directories contain their own documentation, including Architectural Decisi
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/tuts-demo-app.git
-    cd tuts-demo-app
+    git clone https://github.com/Gopal-Khadka/Fullstack-Notes-Template.git
+    cd Fullstack-Notes-Template
     ```
 
 2.  **Set up the Backend:**

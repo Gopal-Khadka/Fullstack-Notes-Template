@@ -1,17 +1,22 @@
 "use client";
-import React from "react";
+
+import { useRouter } from "next/navigation";
+import LexicalMdEditor from "@/components/notes/LexicalMdEditor";
 import { Button } from "@/components/ui/button";
-import { useNotes } from "@/hooks/useNote";
 
 const page = () => {
-	const { data, isLoading, error } = useNotes();
+	const router = useRouter();
 	const handleClick = () => {
-		console.log(data);
+		router.push("/notes");
 	};
 	return (
-		<div className="text-quaternary">
+		<div className="flex flex-col items-center justify-center h-screen">
 			<h1 className="text-primary">Hello World</h1>
-			<Button onClick={handleClick}>Click me</Button>
+			<Button onClick={handleClick}>Go to Notes</Button>
+			<hr/>
+
+			<h2 className="text-primary">Lexical Md Editor</h2>
+			<LexicalMdEditor />
 		</div>
 	);
 };

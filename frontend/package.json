@@ -11,12 +11,14 @@
 		"openapi-ts": "openapi-ts"
 	},
 	"dependencies": {
+		"@lexical/react": "^0.33.0",
 		"@radix-ui/react-slot": "1.2.3",
 		"@tailwindcss/postcss": "4.1.11",
 		"@tanstack/react-query": "5.81.5",
 		"axios": "1.10.0",
 		"class-variance-authority": "0.7.1",
 		"clsx": "2.1.1",
+		"lexical": "^0.33.0",
 		"lucide-react": "0.525.0",
 		"next": "15.3.5",
 		"next-themes": "0.4.6",
