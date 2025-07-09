@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SimpleTipTapEditor } from "@/components/notes/tiptapeditor/SimpleEditor";
 import AdvancedEditor from "@/components/notes/tiptapeditor/AdvancedEditor";
 import { BasicTiptapEditor } from "@/components/notes/tiptapeditor";
+import ContextChatEditor from "@/components/chat/ContextAwareEditor";
 
 const page = () => {
   const router = useRouter();
@@ -23,7 +24,8 @@ const page = () => {
 			<hr /> */}
 
       <h2 className="text-primary">TipTap Editor</h2>
-      <BasicTiptapEditor  />
+      {/* <BasicTiptapEditor  /> */}
+      <ContextChatEditor />
     </div>
   );
 };

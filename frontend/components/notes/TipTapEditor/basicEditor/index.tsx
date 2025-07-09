@@ -54,12 +54,12 @@ export const BasicTiptapEditor = ({
         // suggestion: suggestion,
         suggestions: [
           {
-            char: "@",
             ...peopleSuggestions,
+            char: "@",
           },
           {
-            char: "#",
             ...tagsSuggestions,
+            char: "#",
           },
         ],
         HTMLAttributes: {
