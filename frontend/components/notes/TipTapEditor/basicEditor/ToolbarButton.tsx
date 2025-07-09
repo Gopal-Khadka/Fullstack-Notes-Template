@@ -1,5 +1,6 @@
 import React from "react";
 import { type LucideProps } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface ToolbarButtonProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -20,20 +21,13 @@ export const ToolbarButton = ({
   icon: Icon,
   className = "",
 }: ToolbarButtonProps) => (
-  <button
+  <Button
     onClick={onClick}
     disabled={disabled}
     title={title}
-    className={`
-      inline-flex items-center justify-center rounded-md text-sm font-medium
-      ring-offset-background transition-colors focus-visible:outline-none
-      focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-      disabled:pointer-events-none disabled:opacity-50 h-8 w-8
-      hover:bg-accent hover:text-accent-foreground
-      ${isActive ? "bg-accent text-accent-foreground" : ""}
-      ${className}
-    `}
+    variant={isActive ? "default" : "outline"}
+    className={className}
   >
     <Icon className="h-4 w-4" />
-  </button>
+  </Button>
 );

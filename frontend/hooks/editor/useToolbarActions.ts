@@ -11,9 +11,26 @@ import {
   Undo,
   Redo,
   Minus,
+  LucideProps,
 } from "lucide-react";
 
-export const useToolbarActions = (editor: Editor) => {
+interface ToolbarAction {
+  group: string;
+  items: ToolbarItem[];
+}
+
+interface ToolbarItem {
+  id: string;
+  action: () => void;
+  isActive?: boolean;
+  disabled: boolean;
+  title: string;
+  icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
+}
+
+export const useToolbarActions = (editor: Editor): ToolbarAction[] => {
   const actions = useMemo(() => {
     return [
       {

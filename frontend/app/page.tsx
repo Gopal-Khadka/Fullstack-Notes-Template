@@ -23,7 +23,7 @@ const page = () => {
 			<hr /> */}
 
       <h2 className="text-primary">TipTap Editor</h2>
-      <BasicTiptapEditor />
+      <BasicTiptapEditor  />
     </div>
   );
 };

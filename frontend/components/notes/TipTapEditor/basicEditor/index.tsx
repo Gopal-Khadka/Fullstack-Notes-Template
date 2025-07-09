@@ -7,8 +7,8 @@ import TextStyle from "@tiptap/extension-text-style";
 import Color from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import Link from "@tiptap/extension-link";
-import { Toolbar } from "./Toolbar";
 import Placeholder from "@tiptap/extension-placeholder";
+import { Toolbar } from "./Toolbar";
 
 export interface TiptapEditorProps {
   content?: string;
@@ -20,14 +20,9 @@ export interface TiptapEditorProps {
   maxHeight?: number;
 }
 
-// Export individual components for custom composition if needed
-export { Toolbar } from "./Toolbar";
-export { ToolbarButton } from "./ToolbarButton";
-export { HeadingSelector } from "./HeadingSelector";
-
 // Main component export
 export const BasicTiptapEditor = ({
-  content = "",
+  content ="",
   onChange,
   placeholder = "Start crafting your message...",
   className = "",
@@ -57,6 +52,7 @@ export const BasicTiptapEditor = ({
     editable,
     onUpdate: ({ editor }) => {
       onChange?.(editor.getHTML());
+      console.log(editor.getHTML());
     },
     editorProps: {
       attributes: {
@@ -97,3 +93,8 @@ export const BasicTiptapEditor = ({
     </div>
   );
 };
+
+// Export individual components for custom composition if needed
+export { Toolbar } from "./Toolbar";
+export { ToolbarButton } from "./ToolbarButton";
+export { HeadingSelector } from "./HeadingSelector";
