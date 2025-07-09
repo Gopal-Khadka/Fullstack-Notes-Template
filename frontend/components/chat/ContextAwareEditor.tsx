@@ -87,8 +87,13 @@ export default function ContextChatEditor() {
       <div className="border rounded-lg p-4">
         <h2 className="text-lg font-semibold mb-4">Context-Aware Chat</h2>
 
-        <div className="border rounded-md p-3 min-h-[100px] mb-4">
-          <EditorContent editor={editor} id="context-aware-editor" />
+        <div className="relative border rounded-md p-3 min-h-[100px] mb-4">
+          <EditorContent
+            editor={editor}
+            id="context-aware-editor"
+            className="overflow-y-auto min-w-[500px] max-w-[500px]"
+            style={{ minHeight: "200px", maxHeight: "600px" }}
+          />
         </div>
 
         <button

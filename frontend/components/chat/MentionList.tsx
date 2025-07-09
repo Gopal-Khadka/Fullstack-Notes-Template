@@ -1,10 +1,4 @@
 "use client";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import React, {
   forwardRef,
   useEffect,
@@ -24,22 +18,23 @@ export const MentionList = forwardRef<any, MentionListProps>(
     const selectItem = (index: number) => {
       const item = items[index];
       if (item) {
-        // Pass the complete item with metadata
         command({
           id: item.id,
           label: item.label,
           type: item.type,
-          metadata: item.metadata || {}
+          metadata: item.metadata || {},
         });
       }
     };
 
     const upHandler = () => {
-      setSelectedIndex((selectedIndex + items.length - 1) % items.length);
+      setSelectedIndex(
+        (prevIndex) => (prevIndex + items.length - 1) % items.length
+      );
     };
 
     const downHandler = () => {
-      setSelectedIndex((selectedIndex + 1) % items.length);
+      setSelectedIndex((prevIndex) => (prevIndex + 1) % items.length);
     };
 
     const enterHandler = () => {
@@ -49,7 +44,7 @@ export const MentionList = forwardRef<any, MentionListProps>(
     useEffect(() => setSelectedIndex(0), [items]);
 
     useImperativeHandle(ref, () => ({
-      onKeyDown: ({ event }: { event: any }) => {
+      onKeyDown: ({ event }: { event: KeyboardEvent }) => {
         if (event.key === "ArrowUp") {
           upHandler();
           return true;
@@ -68,45 +63,44 @@ export const MentionList = forwardRef<any, MentionListProps>(
 
     const getItemIcon = (type: string) => {
       switch (type) {
-        case 'user': return '👤';
-        case 'file': return '📄';
-        case 'status': return '📋';
-        default: return '•';
+        case "user":
+          return "👤";
+        case "file":
+          return "📄";
+        case "status":
+          return "📋";
+        default:
+          return "•";
       }
     };
 
     return (
-        <div className="relative">
-      <DropdownMenu open>
-        <DropdownMenuTrigger asChild>
-          <div style={{ display: "none" }} />
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-64 absolute top-0 left-0">
-          {items.length ? (
-            items.map((item, index) => (
-              <DropdownMenuItem
-                key={index}
-                onClick={() => selectItem(index)}
-                className={index === selectedIndex ? "bg-accent text-accent-foreground" : ""}
-              >
-                <div className="flex items-center gap-2">
-                  <span>{getItemIcon(item.type)}</span>
-                  <div className="flex flex-col">
-                    <span className="font-medium">{item.label}</span>
-                    {item.metadata?.description && (
-                      <span className="text-xs text-muted-foreground">
-                        {item.metadata.description}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </DropdownMenuItem>
-            ))
-          ) : (
-            <DropdownMenuItem disabled>No result</DropdownMenuItem>
-          )}
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <div className="z-50 min-w-[256px] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md">
+        {items.length > 0 ? (
+          items.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => selectItem(index)}
+              className={`flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors ${
+                index === selectedIndex
+                  ? "bg-accent text-accent-foreground"
+                  : ""
+              }`}
+            >
+              <span>{getItemIcon(item.type)}</span>
+              <div className="flex flex-col items-start">
+                <span className="font-medium">{item.label}</span>
+                {item.metadata?.description && (
+                  <span className="text-xs text-muted-foreground">
+                    {item.metadata.description}
+                  </span>
+                )}
+              </div>
+            </button>
+          ))
+        ) : (
+          <div className="px-2 py-1.5 text-sm">No result</div>
+        )}
       </div>
     );
   }

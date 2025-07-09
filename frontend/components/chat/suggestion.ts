@@ -85,7 +85,6 @@ export const createSuggestion = (char: string) => ({
 
         popup = tippy("body", {
           getReferenceClientRect: props.clientRect,
-          appendTo: () => document.getElementById("context-aware-editor")!,
           content: reactRenderer.element,
           showOnCreate: true,
           interactive: true,
