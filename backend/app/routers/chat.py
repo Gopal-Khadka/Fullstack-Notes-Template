@@ -6,7 +6,7 @@ from app.constants.chat_context import CONTEXT_DATA
 from app.schemas.chat import ChatResponse, ParsedMessage
 from app.utils.chat import generate_response, resolve_mention_context
 
-router = APIRouter(prefix="/api/chat", tags=["chat"])
+router = APIRouter(tags=["chat"])
 
 
 @router.post("/api/chat", response_model=ChatResponse)

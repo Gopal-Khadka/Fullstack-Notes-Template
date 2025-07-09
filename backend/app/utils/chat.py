@@ -12,7 +12,7 @@ def resolve_mention_context(mention: MentionItem) -> dict[str, Any]:
         return {"error": f"No context found for {mention.label}"}
 
     return {
-        "mention": mention.dict(),
+        "mention": mention.model_dump(),
         "context": context,
         "resolved": True,
     }
@@ -28,16 +28,16 @@ def generate_response(message: str, mentions: list[MentionItem]) -> str:
     for mention in mentions:
         context = CONTEXT_DATA.get(mention.id, {})
 
-        if mention.type == "user":
+        if context["type"] == "user":
             response_parts.append(
                 f"• {mention.label} ({context.get('role', 'Unknown role')}) - "
                 f"currently working on: {context.get('currentWork', 'Unknown task')}",
             )
-        elif mention.type == "file":
+        elif context["type"] == "file":
             response_parts.append(
                 f"• {mention.label} - {context.get('description', 'No description')}",
             )
-        elif mention.type == "status":
+        elif context["type"] == "status":
             response_parts.append(
                 f"• {mention.label} status - {context.get('description', 'No description')} "
                 f"({context.get('count', 0)} items)",
