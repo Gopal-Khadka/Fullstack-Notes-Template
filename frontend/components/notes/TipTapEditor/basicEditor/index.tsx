@@ -10,7 +10,8 @@ import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
 import Mention from "@tiptap/extension-mention";
 import { Toolbar } from "./Toolbar";
-import suggestion from "@/config/tiptap/suggestion";
+import suggestion from "@/config/tiptap/suggestion/people";
+import { peopleSuggestions, tagsSuggestions } from "@/config/tiptap/suggestion";
 
 export interface TiptapEditorProps {
   content?: string;
@@ -24,7 +25,7 @@ export interface TiptapEditorProps {
 
 // Main component export
 export const BasicTiptapEditor = ({
-  content =`<p>Hello <span data-type="mention" data-id="Jerry Hall" data-mention-suggestion-char="@">@Jerry Hall</span> </p>`,
+  content = `<p>Hello <span data-type="mention" data-id="Jerry Hall" data-mention-suggestion-char="@">@Jerry Hall</span> </p>`,
   onChange,
   placeholder = "Start crafting your message...",
   className = "",
@@ -50,7 +51,17 @@ export const BasicTiptapEditor = ({
         placeholder: placeholder,
       }),
       Mention.configure({
-        suggestion: suggestion,
+        // suggestion: suggestion,
+        suggestions: [
+          {
+            char: "@",
+            ...peopleSuggestions,
+          },
+          {
+            char: "#",
+            ...tagsSuggestions,
+          },
+        ],
         HTMLAttributes: {
           class: "bg-violet-400 text-white p-2 rounded-md",
         },

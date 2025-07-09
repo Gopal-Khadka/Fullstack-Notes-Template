@@ -53,6 +53,9 @@ importers:
       '@tiptap/starter-kit':
         specifier: ^2.25.0
         version: 2.25.0
+      '@tiptap/suggestion':
+        specifier: ^2.25.0
+        version: 2.25.0(@tiptap/core@2.25.0(@tiptap/pm@2.25.0))(@tiptap/pm@2.25.0)
       axios:
         specifier: 1.10.0
         version: 1.10.0
