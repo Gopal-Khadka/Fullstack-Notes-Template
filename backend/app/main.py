@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import create_tables
-from app.routers import notes_router
+from app.routers import chat_router, notes_router
 
 
 @asynccontextmanager
@@ -46,6 +46,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(notes_router)
+app.include_router(chat_router)
 
 
 @app.get("/")

@@ -36,6 +36,7 @@ export default function ContextChatEditor() {
       });
 
       console.log("parsedMessage", parsedMessage);
+      console.log("json", json);
     },
     immediatelyRender: false,
   });
@@ -54,7 +55,6 @@ export default function ContextChatEditor() {
       }
       if (node.content) {
         node.content.forEach(traverse);
-        console.log("node.content", node.content);
       }
     };
 
@@ -88,7 +88,7 @@ export default function ContextChatEditor() {
         <h2 className="text-lg font-semibold mb-4">Context-Aware Chat</h2>
 
         <div className="border rounded-md p-3 min-h-[100px] mb-4">
-          <EditorContent editor={editor} />
+          <EditorContent editor={editor} id="context-aware-editor" />
         </div>
 
         <button

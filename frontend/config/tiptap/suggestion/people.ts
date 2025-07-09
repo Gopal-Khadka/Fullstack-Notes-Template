@@ -42,6 +42,7 @@ export default {
 
     return {
       onStart: (props: any) => {
+        // If the clientRect() is not available, return
         if (!props.clientRect) {
           return;
         }
@@ -53,7 +54,7 @@ export default {
 
         popup = tippy("body", {
           getReferenceClientRect: props.clientRect,
-          appendTo: () => document.body,
+          appendTo: () => document.getElementById("context-aware-editor")!,
           content: reactRenderer.element,
           showOnCreate: true,
           interactive: true,
@@ -88,6 +89,7 @@ export default {
         popup[0].destroy();
         reactRenderer.destroy();
       },
+
     };
   },
 };

@@ -76,11 +76,12 @@ export const MentionList = forwardRef<any, MentionListProps>(
     };
 
     return (
+        <div className="relative">
       <DropdownMenu open>
         <DropdownMenuTrigger asChild>
           <div style={{ display: "none" }} />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-64">
+        <DropdownMenuContent className="w-64 absolute top-0 left-0">
           {items.length ? (
             items.map((item, index) => (
               <DropdownMenuItem
@@ -106,6 +107,7 @@ export const MentionList = forwardRef<any, MentionListProps>(
           )}
         </DropdownMenuContent>
       </DropdownMenu>
+      </div>
     );
   }
 );
