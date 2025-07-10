@@ -87,3 +87,8 @@ All UI components must be built using Shadcn/ui components or follow Shadcn/ui p
 - [ShadCN Extensions](https://shadcn-extension.vercel.app/docs/introduction)
 - [Motion Primitives](https://motion-primitives.com/docs/installation)
 - [Rigid UI](https://www.rigidui.com/docs/getting-started)
+- [Easy UI](https://www.easyui.pro/component)
+- [Extend UI](https://www.extend-ui.com/docs/components/stepper)
+- [Auto Forms Generation By Zod Schema](https://autoform.vantezzen.io/)
+- [Berlix UI](https://ui.rechesoares.com/docs)
+- [Cult UI](https://www.cult-ui.com/docs)

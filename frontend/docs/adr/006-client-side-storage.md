@@ -82,3 +82,4 @@ All client-side structured data storage must be implemented using Dexie.js. Simp
 - [Offline-First Design Patterns](https://offlinefirst.org/)
 - [Progressive Web App Storage](https://web.dev/storage-for-the-web/)
 - [Dexie.js GitHub Repository](https://github.com/dexie/Dexie.js)
+- [Dice UI](https://www.diceui.com/docs/introduction)

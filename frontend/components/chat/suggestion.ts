@@ -3,6 +3,9 @@ import tippy from "tippy.js";
 import { MentionList } from "./MentionList";
 import type { MentionItem } from "./type";
 
+// @type: Type
+// @user_1: Jerry Hall
+
 const people: MentionItem[] = [
   {
     id: "user_1",
