@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.placeholder {
+  @apply absolute top-16 left-4 right-7 text-sm text-gray-500 overflow-hidden text-ellipsis select-none pointer-events-none whitespace-nowrap inline-block;
+}
+.container {
+  @apply relative w-full bg-white text-black font-normal text-left;
+}
+
+.contentEditable {
+  @apply relative min-h-[150px] max-h-[500px] resize-none outline-none text-base caret-gray-600 tab-[1] p-4 overflow-auto;
+}
+
+.contentEditable hr {
+  @apply border-none h-0.5 bg-gray-400;
+}

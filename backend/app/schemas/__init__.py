@@ -3,4 +3,4 @@
 
 from .note import NoteCreate, NoteResponse, NotesListResponse, NoteUpdate
 
-__all__ = ["NoteCreate", "NoteUpdate", "NoteResponse", "NotesListResponse"]
+__all__ = ["NoteCreate", "NoteResponse", "NoteUpdate", "NotesListResponse"]

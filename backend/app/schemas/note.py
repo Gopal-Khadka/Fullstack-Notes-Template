@@ -17,13 +17,9 @@ class NoteBase(BaseModel):
 class NoteCreate(NoteBase):
     """Schema for creating a new note."""
 
-    pass
-
 
 class NoteUpdate(NoteBase):
     """Schema for updating an existing note."""
-
-    pass
 
 
 class NoteResponse(NoteBase):
